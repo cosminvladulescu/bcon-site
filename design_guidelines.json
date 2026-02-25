@@ -1,0 +1,166 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "B-CON CONSULTING",
+      "metaphor": "Structural Precision",
+      "tone": "Authoritative, Strategic, Trustworthy, Minimalist",
+      "archetype": "Swiss & High-Contrast mixed with The Performance Pro"
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Manrope, sans-serif",
+        "body": "Inter, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "scale": {
+        "h1": "text-5xl md:text-7xl font-bold tracking-tight leading-none",
+        "h2": "text-4xl md:text-5xl font-semibold tracking-tight",
+        "h3": "text-2xl md:text-3xl font-medium",
+        "body": "text-base md:text-lg leading-relaxed text-slate-600",
+        "caption": "text-sm font-mono uppercase tracking-widest text-slate-500"
+      },
+      "imports": [
+        "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;700;800&display=swap');"
+      ]
+    },
+    "colors": {
+      "palette": {
+        "primary": {
+          "name": "Navy Slate",
+          "value": "#0F172A",
+          "tailwind": "bg-slate-900 text-white"
+        },
+        "secondary": {
+          "name": "Construction Burgundy",
+          "value": "#7F1D1D",
+          "tailwind": "bg-red-900 text-white"
+        },
+        "accent": {
+          "name": "Signal Gradient",
+          "value": "linear-gradient(135deg, #7F1D1D 0%, #0F172A 100%)",
+          "tailwind": "bg-gradient-to-br from-red-900 to-slate-900"
+        },
+        "background": {
+          "main": "#FFFFFF",
+          "secondary": "#F8FAFC",
+          "dark": "#0F172A"
+        },
+        "text": {
+          "main": "#0F172A",
+          "muted": "#64748B",
+          "inverted": "#FFFFFF"
+        }
+      },
+      "rules": {
+        "gradients": "Use ONLY for small accents (borders, icons, buttons). NEVER full backgrounds.",
+        "contrast": "Ensure WCAG AA compliance. Use Slate-900 text on White. White text on Slate-900."
+      }
+    },
+    "layout": {
+      "spacing": {
+        "container_padding": "px-6 md:px-12 lg:px-24",
+        "section_gap": "py-24 md:py-32",
+        "element_gap": "gap-8 md:gap-12"
+      },
+      "grid_system": {
+        "marketing": "grid grid-cols-1 md:grid-cols-12 gap-8",
+        "dashboard": "grid grid-cols-1 md:grid-cols-4 gap-6"
+      },
+      "container": "max-w-7xl mx-auto"
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-slate-900 text-white hover:bg-slate-800 rounded-none px-8 py-4 font-medium transition-all duration-300 hover:translate-x-1",
+        "secondary": "border border-slate-200 text-slate-900 hover:border-slate-900 rounded-none px-8 py-4 transition-all duration-300",
+        "cta": "bg-red-900 text-white hover:bg-red-800 rounded-none px-10 py-5 font-bold shadow-lg hover:shadow-xl transition-all"
+      },
+      "cards": {
+        "service": "bg-white p-8 border border-slate-100 hover:border-slate-300 transition-all duration-300 group relative overflow-hidden",
+        "feature": "bg-slate-50 p-8 rounded-none border-l-4 border-red-900"
+      },
+      "inputs": {
+        "style": "rounded-none border-slate-200 focus:ring-slate-900 focus:border-slate-900 bg-white h-12"
+      }
+    },
+    "motion": {
+      "library": "framer-motion",
+      "defaults": {
+        "duration": 0.5,
+        "ease": "easeOut"
+      },
+      "scroll": "Use 'lenis' for smooth scrolling"
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_bg": {
+        "url": "https://images.unsplash.com/photo-1765706957468-ae7c0db12830?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Scaffolding against clear blue sky representing structure and growth",
+        "usage": "Hero section background or split layout image"
+      },
+      "about_consulting": {
+        "url": "https://images.unsplash.com/photo-1577561776790-1a20c419b1a2?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Hands working on architectural blueprints",
+        "usage": "About Us section or Services intro"
+      },
+      "modern_infrastructure": {
+        "url": "https://images.unsplash.com/photo-1765031434571-3da6e019a94d?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Geometric modern building facade",
+        "usage": "Background texture or 'Why Us' visual"
+      },
+      "large_scale_project": {
+        "url": "https://images.unsplash.com/photo-1762248322725-e29eedafd516?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Large dam construction site",
+        "usage": "Portfolio highlight or Case Study header"
+      },
+      "logo": {
+        "url": "https://customer-assets.emergentagent.com/job_1d2af1f6-e796-4a18-b1b0-90c24d60abfd/artifacts/c3prawir_Red%20Black%20Geometric%20Construction%20Architecture%20Logo%20%281%29.png",
+        "alt": "B-CON Consulting Logo"
+      }
+    },
+    "icons": "Use 'lucide-react' for UI icons (ChevronRight, Building, Ruler, FileText, HardHat, Users)"
+  },
+  "pages_structure": {
+    "home": {
+      "sections": [
+        "Hero: Split layout. Left: Bold Typography + CTA. Right: Hero Image (Scaffolding).",
+        "Services Preview: 3-column grid. Minimalist cards.",
+        "Why Us: Asymmetric layout with 'Modern Infrastructure' image.",
+        "Stats/Trust: Simple row with numbers (Years, Projects, Value).",
+        "CTA: Full width, Burgundy background."
+      ]
+    },
+    "services": {
+      "layout": "Grid of 6 cards. Each card has a subtle hover effect revealing the gradient accent.",
+      "items": [
+        "Consultanță contracte publice",
+        "Managementul contractelor",
+        "Decontări",
+        "FIDIC",
+        "Dirigenție șantier",
+        "Asistență tehnică"
+      ]
+    },
+    "contact": {
+      "layout": "Two columns. Left: Contact Info (No address). Right: Shadcn Form.",
+      "form_fields": ["Nume", "Email", "Telefon", "Companie", "Mesaj"]
+    }
+  },
+  "instructions_to_main_agent": [
+    "Use 'Manrope' for all Headings to give a technical, architectural feel.",
+    "Use 'Inter' for body text for maximum readability.",
+    "Implement 'lenis' for smooth scrolling to make the site feel premium.",
+    "Do NOT use rounded corners > 4px. Keep things sharp and structural (rounded-none or rounded-sm).",
+    "Use the Red/Blue gradient ONLY as a thin border or small accent, never as a main background.",
+    "Ensure all text is in Romanian as per the problem statement.",
+    "Use the provided image URLs strictly. Do not use placeholders.",
+    "For the 'Services' section, use a 'Bento' grid or a clean 3-column grid with generous whitespace.",
+    "The 'Contact' form must be functional (UI-wise) using Shadcn components."
+  ],
+  "universal_guidelines": [
+    "Avoid generic centered layouts. Use asymmetry.",
+    "Use 2-3x more spacing than typical designs (p-12, p-24).",
+    "Interactive elements must have hover states (text color change, border reveal).",
+    "All interactive elements must have data-testid attributes."
+  ]
+}

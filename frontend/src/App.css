@@ -1,0 +1,51 @@
+/* Additional App Styles */
+.App {
+    min-height: 100vh;
+}
+
+/* Animation utilities */
+.animate-in {
+    animation: animateIn 0.5s ease-out forwards;
+}
+
+@keyframes animateIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom focus styles */
+*:focus-visible {
+    outline: 2px solid #0F172A;
+    outline-offset: 2px;
+}
+
+/* Image loading placeholder */
+img {
+    background-color: transparent;
+}
+
+/* Logo specific - no background */
+img[alt="B-CON Consulting"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
