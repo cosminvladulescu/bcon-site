@@ -66,96 +66,19 @@ collections:
               - { label: "Titlu", name: "title", widget: "string" }
               - { label: "Descriere", name: "description", widget: "text" }
 
-  - name: "contact"
+    - name: "contact"
     label: "Date Contact"
     files:
       - label: "Informatii Contact"
         name: "contact"
         file: "frontend/src/content/contact.json"
         fields:
-          - { label: "Telefon", name: "telefon", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Adresa", name: "adresa", widget: "string" }
-            - name: "site"
-    label: "Site (Header/Meniu)"
-    files:
-      - label: "Setări Site"
-        name: "site"
-        file: "frontend/src/content/site.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - label: "Meniu"
-            name: "nav"
-            widget: "list"
-            fields:
-              - { label: "Text", name: "label", widget: "string" }
-              - { label: "Link", name: "href", widget: "string" }
-          - label: "Buton Header (CTA)"
-            name: "headerCta"
-            widget: "object"
-            fields:
-              - { label: "Text", name: "label", widget: "string" }
-              - { label: "Link", name: "href", widget: "string" }
-
-  - name: "footer"
-    label: "Footer"
-    files:
-      - label: "Conținut Footer"
-        name: "footer"
-        file: "frontend/src/content/footer.json"
-        fields:
-          - label: "Coloane"
-            name: "columns"
-            widget: "list"
-            fields:
-              - { label: "Titlu coloană", name: "title", widget: "string" }
-              - label: "Link-uri"
-                name: "links"
-                widget: "list"
-                fields:
-                  - { label: "Text", name: "label", widget: "string" }
-                  - { label: "Link", name: "href", widget: "string" }
-          - label: "Contact"
-            name: "contact"
-            widget: "object"
-            fields:
-              - { label: "Telefon", name: "phone", widget: "string" }
-              - { label: "Email", name: "email", widget: "string" }
-              - { label: "Locație", name: "location", widget: "string" }
-          - label: "Legal"
-            name: "legal"
-            widget: "object"
-            fields:
-              - { label: "Text copyright", name: "copyright", widget: "string" }
-
-  - name: "services_page"
-    label: "Pagina Servicii"
-    files:
-      - label: "Conținut Servicii"
-        name: "services"
-        file: "frontend/src/content/services.json"
-        fields:
-          - { label: "Titlu pagină", name: "pageTitle", widget: "string" }
-          - { label: "Introducere", name: "pageIntro", widget: "text" }
-          - label: "Servicii"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "Titlu", name: "title", widget: "string" }
-              - { label: "Descriere", name: "description", widget: "text" }
-
-  - name: "about_page"
-    label: "Pagina Despre"
-    files:
-      - label: "Conținut Despre"
-        name: "about"
-        file: "frontend/src/content/about.json"
-        fields:
-          - { label: "Titlu pagină", name: "pageTitle", widget: "string" }
-          - { label: "Introducere", name: "intro", widget: "text" }
-          - label: "Highlights"
-            name: "highlights"
-            widget: "list"
-            fields:
-              - { label: "Titlu", name: "title", widget: "string" }
-              - { label: "Descriere", name: "description", widget: "text" }
+          - label: "Telefon"
+            name: "telefon"
+            widget: "string"
+          - label: "Email"
+            name: "email"
+            widget: "string"
+          - label: "Adresa"
+            name: "adresa"
+            widget: "string"
