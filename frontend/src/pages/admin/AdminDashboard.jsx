@@ -87,6 +87,7 @@ const AdminDashboard = () => {
     // Handle hash navigation
     const hash = window.location.hash.replace("#", "");
     if (hash) setActiveTab(hash);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchAllData = async () => {
