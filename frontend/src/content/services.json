@@ -1,0 +1,10 @@
+{
+  "pageTitle": "Servicii",
+  "pageIntro": "Servicii specializate pentru contracte publice în construcții: ofertare, decontare, claim management și management de contract.",
+  "items": [
+    { "title": "Management de contract", "description": "Suport complet pe derularea contractelor publice: termene, corespondență, obligații, riscuri, strategii." },
+    { "title": "Decontare / Situații de lucrări", "description": "Verificare, structurare și susținere documentară pentru decontări corecte și rapide." },
+    { "title": "Ofertare SEAP", "description": "Pregătire ofertă tehnică și financiară, structurare costuri și documente suport." },
+    { "title": "Claim management", "description": "Identificare oportunități contractuale, fundamentare și susținere revendicări." }
+  ]
+}

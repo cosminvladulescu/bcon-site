@@ -1,0 +1,26 @@
+{
+  "columns": [
+    {
+      "title": "B-CON Consulting",
+      "links": [
+        { "label": "Servicii", "href": "/servicii" },
+        { "label": "Despre noi", "href": "/despre" }
+      ]
+    },
+    {
+      "title": "Resurse",
+      "links": [
+        { "label": "Blog", "href": "/blog" },
+        { "label": "Contact", "href": "/contact" }
+      ]
+    }
+  ],
+  "contact": {
+    "phone": "+40 XXX XXX XXX",
+    "email": "office@b-con.ro",
+    "location": "România"
+  },
+  "legal": {
+    "copyright": "© {{year}} B-CON Consulting. Toate drepturile rezervate."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "brand": "B-CON Consulting",
+  "nav": [
+    { "label": "Acasă", "href": "/" },
+    { "label": "Servicii", "href": "/servicii" },
+    { "label": "Despre noi", "href": "/despre" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "headerCta": {
+    "label": "Solicită o discuție",
+    "href": "/contact"
+  }
+}
