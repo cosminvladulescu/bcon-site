@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: cosminvladulescu/bcon-site
+  branch: main
+
+media_folder: frontend/public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "Continut Homepage"
+        name: "homepage"
+        file: "frontend/src/content/homepage.json"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Titlu", name: "title", widget: "string" }
+              - { label: "Subtitlu", name: "subtitle", widget: "text" }
+              - { label: "Text buton principal", name: "ctaPrimary", widget: "string" }
+              - { label: "Text buton secundar", name: "ctaSecondary", widget: "string" }
+          - label: "Servicii"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Titlu", name: "title", widget: "string" }
+              - { label: "Descriere", name: "description", widget: "text" }
+          - label: "Beneficii"
+            name: "benefits"
+            widget: "list"
+            fields:
+              - { label: "Titlu", name: "title", widget: "string" }
+              - { label: "Descriere", name: "description", widget: "text" }
+
+  - name: "contact"
+    label: "Date Contact"
+    files:
+      - label: "Informatii Contact"
+        name: "contact"
+        file: "frontend/src/content/contact.json"
+        fields:
+          - { label: "Telefon", name: "telefon", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Adresa", name: "adresa", widget: "string" }

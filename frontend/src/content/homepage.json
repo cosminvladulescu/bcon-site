@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "title": "Partenerul tău de încredere în contracte publice",
+    "subtitle": "Oferim consultanță tehnică specializată pentru antreprenori și firme de construcții care derulează contracte cu autorități publice din România.",
+    "ctaPrimary": "Discută cu echipa B-CON",
+    "ctaSecondary": "Descoperă serviciile"
+  },
+  "services": [
+    {
+      "title": "Consultanță Contracte Publice",
+      "description": "Asistență completă în procesul de contractare publică și gestionarea relației cu autoritățile contractante."
+    },
+    {
+      "title": "Ofertare SEAP & Strategie Financiară",
+      "description": "Pregătire completă a ofertei tehnice și financiare pentru proceduri de achiziție publică, cu accent pe structurarea corectă a costurilor."
+    },
+    {
+      "title": "Decontare & Managementul Situațiilor",
+      "description": "Optimizarea procesului de decontare prin verificare tehnico-economică riguroasă și fundamentare documentară solidă."
+    },
+    {
+      "title": "Claim Management & Strategie Contractuală",
+      "description": "Identificarea, fundamentarea și susținerea drepturilor contractuale în cadrul contractelor publice și acordurilor-cadru."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Expertiză Tehnică Aplicată",
+      "description": "Experiență practică în analiza documentațiilor, contractelor și situațiilor de lucrări, cu accent pe respectarea cadrului legal și tehnic aplicabil."
+    },
+    {
+      "title": "Orientare pe Rezultate",
+      "description": "Ne concentrăm pe soluții concrete care sprijină derularea corectă a contractelor și protejarea intereselor beneficiarilor și antreprenorilor."
+    },
+    {
+      "title": "Răspuns Rapid și Clar",
+      "description": "Oferim suport prompt și explicații clare în situații tehnice sau contractuale care necesită decizii rapide și bine fundamentate."
+    },
+    {
+      "title": "Abordare Profesionistă",
+      "description": "Lucrăm structurat, transparent și responsabil, adaptând fiecare intervenție la specificul proiectului și al echipei implicate."
+    }
+  ]
+}
