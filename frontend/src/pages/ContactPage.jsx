@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Phone, Send, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import axios from "axios";
 import PageMeta from "@/components/PageMeta";
+
+import contactContent from "../content/contact.json";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -17,26 +19,26 @@ const ContactPage = () => {
     email: "",
     phone: "",
     company: "",
-    message: ""
+    message: "",
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       toast.error("Te rugăm să completezi toate câmpurile obligatorii.");
       return;
     }
 
     setLoading(true);
-    
+
     try {
       await axios.post(`${API}/contact`, formData);
       setSubmitted(true);
@@ -46,7 +48,7 @@ const ContactPage = () => {
         email: "",
         phone: "",
         company: "",
-        message: ""
+        message: "",
       });
     } catch (error) {
       console.error("Error submitting contact form:", error);
@@ -60,8 +62,9 @@ const ContactPage = () => {
     <div className="pt-20" data-testid="contact-page">
       <PageMeta
         title="Contact | B-CON Consulting"
-        description="Contactați echipa B-CON Consulting pentru o discuție gratuită despre contractele dumneavoastră publice. Email: office@b-con.ro | Tel: 0758 231 666"
+        description={`Contactează echipa B-CON Consulting pentru o discuție gratuită despre contractele tale publice. Email: ${contactContent.email} | Tel: ${contactContent.telefonAfisare}`}
       />
+
       {/* Hero Section */}
       <section className="py-24 md:py-32 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
@@ -74,12 +77,15 @@ const ContactPage = () => {
             <p className="text-burgundy-500 font-medium uppercase tracking-widest text-sm mb-4">
               Contact
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" data-testid="contact-title">
+            <h1
+              className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              data-testid="contact-title"
+            >
               Hai să discutăm
             </h1>
             <p className="text-slate-300 text-lg md:text-xl leading-relaxed">
-              Completează formularul de mai jos sau contactează-ne direct. 
-              Te vom contacta în cel mai scurt timp posibil.
+              Completează formularul de mai jos sau contactează-ne direct. Te vom contacta în cel mai
+              scurt timp posibil.
             </p>
           </motion.div>
         </div>
@@ -99,7 +105,7 @@ const ContactPage = () => {
               <h2 className="font-heading text-3xl font-bold text-slate-900 mb-8">
                 Informații de contact
               </h2>
-              
+
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-slate-900 flex items-center justify-center flex-shrink-0">
@@ -107,12 +113,12 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-slate-900 mb-1">Email</h3>
-                    <a 
-                      href="mailto:office@bcon-consulting.ro"
+                    <a
+                      href={`mailto:${contactContent.email}`}
                       className="text-slate-600 hover:text-burgundy-900 transition-colors"
                       data-testid="contact-email"
                     >
-                      office@bcon-consulting.ro
+                      {contactContent.email}
                     </a>
                   </div>
                 </div>
@@ -123,12 +129,12 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-slate-900 mb-1">Telefon</h3>
-                    <a 
-                      href="tel:0758231666"
+                    <a
+                      href={`tel:${contactContent.telefonLink}`}
                       className="text-slate-600 hover:text-burgundy-900 transition-colors"
                       data-testid="contact-phone"
                     >
-                      0758 231 666
+                      {contactContent.telefonAfisare}
                     </a>
                   </div>
                 </div>
@@ -139,8 +145,9 @@ const ContactPage = () => {
                   Program de lucru
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Luni - Vineri: 09:00 - 18:00<br />
-                  Sâmbătă - Duminică: Închis
+                  Luni - Vineri: {contactContent.program?.luniVineri || "—"}
+                  <br />
+                  Sâmbătă - Duminică: {contactContent.program?.sambataDuminica || "—"}
                 </p>
               </div>
             </motion.div>
@@ -186,7 +193,7 @@ const ContactPage = () => {
                         data-testid="contact-input-name"
                       />
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="email">Email *</Label>
                       <Input
@@ -212,12 +219,12 @@ const ContactPage = () => {
                         type="tel"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="0758 231 666"
+                        placeholder={contactContent.telefonAfisare || "07xx xxx xxx"}
                         className="rounded-none border-slate-200 focus:border-slate-900 h-12"
                         data-testid="contact-input-phone"
                       />
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="company">Companie</Label>
                       <Input
@@ -282,14 +289,14 @@ const ContactPage = () => {
           <p className="text-slate-600 mb-6">
             Sună-ne direct și vom răspunde la întrebările tale.
           </p>
-          <a href="tel:0758231666">
-            <Button 
+          <a href={`tel:${contactContent.telefonLink}`}>
+            <Button
               variant="outline"
               className="border-slate-300 hover:border-slate-900 rounded-none px-8 py-4"
               data-testid="contact-call-button"
             >
               <Phone className="mr-2 h-4 w-4" />
-              0758 231 666
+              {contactContent.telefonAfisare}
             </Button>
           </a>
         </div>

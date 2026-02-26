@@ -1,5 +1,9 @@
 {
-  "telefon": "+40 XXX XXX XXX",
   "email": "office@b-con.ro",
-  "adresa": "România"
+  "telefonAfisare": "0758 231 668",
+  "telefonLink": "0758231668",
+  "program": {
+    "luniVineri": "09:00 – 17:30",
+    "sambataDuminica": "Închis"
+  }
 }
