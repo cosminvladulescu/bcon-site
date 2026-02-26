@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  ChevronRight, 
-  FileText, 
-  Calculator, 
-  Users, 
+import {
+  ChevronRight,
+  FileText,
+  Calculator,
+  Users,
   Award,
   Clock,
   Target,
@@ -13,59 +13,20 @@ import {
   TrendingUp,
   Calendar,
   Check,
-  X
+  X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageMeta from "@/components/PageMeta";
+import homepageContent from "../content/homepage.json";
 
-const HERO_IMAGE = "https://customer-assets.emergentagent.com/job_buildtech-romania/artifacts/vcceupad_ChatGPT%20Image%20Feb%201%2C%202026%2C%2010_51_11%20PM.png";
-const ABOUT_IMAGE = "https://customer-assets.emergentagent.com/job_buildtech-romania/artifacts/kvzv51xh_Untitled%20design.png";
+const HERO_IMAGE =
+  "https://customer-assets.emergentagent.com/job_buildtech-romania/artifacts/vcceupad_ChatGPT%20Image%20Feb%201%2C%202026%2C%2010_51_11%20PM.png";
+const ABOUT_IMAGE =
+  "https://customer-assets.emergentagent.com/job_buildtech-romania/artifacts/kvzv51xh_Untitled%20design.png";
 
-const services = [
-  {
-    icon: FileText,
-    title: "Consultanță Contracte Publice",
-    description: "Asistență completă în procesul de contractare publică și gestionarea relației cu autoritățile contractante."
-  },
-  {
-    icon: Calculator,
-    title: "Ofertare SEAP & Strategie Financiară",
-    description: "Pregătire completă a ofertei tehnice și financiare pentru proceduri de achiziție publică, cu accent pe structurarea corectă a costurilor."
-  },
-  {
-    icon: ClipboardList,
-    title: "Decontare & Managementul Situațiilor",
-    description: "Optimizarea procesului de decontare prin verificare tehnico-economică riguroasă și fundamentare documentară solidă."
-  },
-  {
-    icon: Target,
-    title: "Claim Management & Strategie Contractuală",
-    description: "Identificarea, fundamentarea și susținerea drepturilor contractuale în cadrul contractelor publice și acordurilor-cadru."
-  }
-];
-
-const benefits = [
-  {
-    icon: Award,
-    title: "Expertiză Tehnică Aplicată",
-    description: "Experiență practică în analiza documentațiilor, contractelor și situațiilor de lucrări, cu accent pe respectarea cadrului legal și tehnic aplicabil."
-  },
-  {
-    icon: Target,
-    title: "Orientare pe Rezultate",
-    description: "Ne concentrăm pe soluții concrete care sprijină derularea corectă a contractelor și protejarea intereselor beneficiarilor și antreprenorilor."
-  },
-  {
-    icon: Clock,
-    title: "Răspuns Rapid și Clar",
-    description: "Oferim suport prompt și explicații clare în situații tehnice sau contractuale care necesită decizii rapide și bine fundamentate."
-  },
-  {
-    icon: Users,
-    title: "Abordare Profesionistă",
-    description: "Lucrăm structurat, transparent și responsabil, adaptând fiecare intervenție la specificul proiectului și al echipei implicate."
-  }
-];
+// Icon maps (păstrăm look-ul, textele vin din CMS)
+const SERVICE_ICONS = [FileText, Calculator, ClipboardList, Target];
+const BENEFIT_ICONS = [Award, Target, Clock, Users];
 
 const HomePage = () => {
   return (
@@ -74,26 +35,28 @@ const HomePage = () => {
         title="B-CON Consulting | Consultanță Contracte Publice în Construcții"
         description="Consultanță tehnică specializată pentru antreprenori care derulează contracte cu autorități publice din România. Ofertare SEAP, decontare, claim management."
       />
+
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center" data-testid="hero-section">
         <div className="absolute inset-0 z-0">
           {/* Gradient overlay - dark navy from left to transparent on right */}
-          <div 
+          <div
             className="absolute inset-0 z-10"
             style={{
-              background: 'linear-gradient(to right, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.85) 35%, rgba(15, 23, 42, 0.5) 60%, transparent 100%)'
+              background:
+                "linear-gradient(to right, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.85) 35%, rgba(15, 23, 42, 0.5) 60%, transparent 100%)",
             }}
           />
-          <img 
-            src={HERO_IMAGE} 
-            alt="Consultanți B-CON analizând documente de construcții" 
+          <img
+            src={HERO_IMAGE}
+            alt="Consultanți B-CON analizând documente de construcții"
             className="w-full h-full object-cover"
             style={{
-              filter: 'saturate(0.85) brightness(0.95)'
+              filter: "saturate(0.85) brightness(0.95)",
             }}
           />
         </div>
-        
+
         <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-24">
           <div className="max-w-2xl">
             <motion.p
@@ -104,7 +67,7 @@ const HomePage = () => {
             >
               Consultanță în Construcții
             </motion.p>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -112,19 +75,18 @@ const HomePage = () => {
               className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none mb-6"
               data-testid="hero-title"
             >
-              Partenerul tău de încredere în contracte publice
+              {homepageContent.hero?.title}
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-slate-300 text-lg md:text-xl leading-relaxed mb-10"
             >
-              Oferim consultanță tehnică specializată pentru antreprenori și firme de construcții 
-              care derulează contracte cu autorități publice din România.
+              {homepageContent.hero?.subtitle}
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -132,23 +94,24 @@ const HomePage = () => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <Link to="/contact">
-                <Button 
+                <Button
                   size="lg"
                   className="bg-burgundy-900 text-white hover:bg-burgundy-700 rounded-none px-10 py-6 font-semibold text-base group"
                   data-testid="hero-cta-primary"
                 >
-                  Discută cu echipa B-CON
+                  {homepageContent.hero?.ctaPrimary}
                   <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
+
               <Link to="/servicii">
-                <Button 
+                <Button
                   variant="outline"
                   size="lg"
                   className="border-white/30 text-white hover:bg-white/10 rounded-none px-8 py-6 font-medium max-md:border-2 max-md:border-white"
                   data-testid="hero-cta-secondary"
                 >
-                  Descoperă serviciile
+                  {homepageContent.hero?.ctaSecondary}
                 </Button>
               </Link>
             </motion.div>
@@ -172,30 +135,32 @@ const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-slate-50 p-4 md:p-8 border-l-4 border-burgundy-900 hover:bg-slate-100 transition-colors group w-full"
-                data-testid={`service-card-${index}`}
-              >
-                <service.icon className="h-10 w-10 text-burgundy-900 mb-6" />
-                <h3 className="font-heading text-xl font-semibold text-slate-900 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
+            {(homepageContent.services || []).map((service, index) => {
+              const Icon = SERVICE_ICONS[index] || FileText;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-slate-50 p-4 md:p-8 border-l-4 border-burgundy-900 hover:bg-slate-100 transition-colors group w-full"
+                  data-testid={`service-card-${index}`}
+                >
+                  <Icon className="h-10 w-10 text-burgundy-900 mb-6" />
+                  <h3 className="font-heading text-xl font-semibold text-slate-900 mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{service.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
 
           <div className="text-center mt-12">
             <Link to="/servicii">
-              <Button 
+              <Button
                 variant="outline"
                 className="border-slate-200 text-slate-900 hover:border-slate-900 rounded-none px-8 py-4"
                 data-testid="services-view-all"
@@ -227,7 +192,8 @@ const HomePage = () => {
               De ce tot mai mulți antreprenori aleg colaborarea contractuală în locul unui angajat intern
             </p>
             <p className="text-slate-600 text-lg leading-relaxed">
-              În contractele publice, o decizie greșită poate costa mai mult decât un an de consultanță. Modelul de lucru pe care îl alegi face diferența.
+              În contractele publice, o decizie greșită poate costa mai mult decât un an de consultanță. Modelul
+              de lucru pe care îl alegi face diferența.
             </p>
           </motion.div>
         </div>
@@ -246,9 +212,7 @@ const HomePage = () => {
               className="bg-[#F3F4F6] p-8"
               data-testid="internal-hire-card"
             >
-              <h3 className="font-heading text-xl font-bold text-slate-700 mb-6">
-                Angajare internă
-              </h3>
+              <h3 className="font-heading text-xl font-bold text-slate-700 mb-6">Angajare internă</h3>
               <ul className="space-y-4 mb-6">
                 {[
                   "Salariu fix lunar: 8.000–15.000+ lei, indiferent de volumul de activitate",
@@ -256,7 +220,7 @@ const HomePage = () => {
                   "Concedii, zile libere, beneficii obligatorii",
                   "Costuri echipamente, software, training",
                   "Experiența limitată la un singur specialist",
-                  "Risc operațional la fluctuația de personal"
+                  "Risc operațional la fluctuația de personal",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <X className="h-4 w-4 text-[#9CA3AF] flex-shrink-0 mt-0.5" />
@@ -278,9 +242,7 @@ const HomePage = () => {
               className="bg-[#FDF2F2] p-8 border-t-[3px] border-burgundy-900"
               data-testid="bcon-collaboration-card"
             >
-              <h3 className="font-heading text-xl font-bold text-slate-900 mb-6">
-                Colaborare B-CON
-              </h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900 mb-6">Colaborare B-CON</h3>
               <ul className="space-y-4 mb-6">
                 {[
                   "Cost doar pentru proiectele și perioadele active",
@@ -288,7 +250,7 @@ const HomePage = () => {
                   "Expertiză cumulată din zeci de contracte publice",
                   "Acoperire completă: ofertare, execuție, decontare, claim-uri",
                   "Scalabilitate imediată la volumul tău de activitate",
-                  "Fără obligații pe termen lung sau proceduri de HR"
+                  "Fără obligații pe termen lung sau proceduri de HR",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <Check className="h-4 w-4 text-burgundy-900 flex-shrink-0 mt-0.5" />
@@ -314,9 +276,7 @@ const HomePage = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900">
-              Ce câștigi concret
-            </h2>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900">Ce câștigi concret</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -324,23 +284,25 @@ const HomePage = () => {
               {
                 Icon: Shield,
                 title: "Reducerea riscului financiar",
-                description: "Notificări la timp, actualizări de preț corecte, situații de lucrări fără erori costisitoare"
+                description:
+                  "Notificări la timp, actualizări de preț corecte, situații de lucrări fără erori costisitoare",
               },
               {
                 Icon: TrendingUp,
                 title: "Maximizarea veniturilor contractuale",
-                description: "Identificăm lucrări suplimentare, ajustări și claim-uri pe care le ratezi fără expertiză specializată"
+                description:
+                  "Identificăm lucrări suplimentare, ajustări și claim-uri pe care le ratezi fără expertiză specializată",
               },
               {
                 Icon: Calendar,
                 title: "Predictibilitate financiară",
-                description: "Știi exact cât plătești și pentru ce, fără costuri ascunse sau surprize"
+                description: "Știi exact cât plătești și pentru ce, fără costuri ascunse sau surprize",
               },
               {
                 Icon: Users,
                 title: "Continuitate operațională",
-                description: "Nu depinzi de o singură persoană. Echipa B-CON este mereu disponibilă"
-              }
+                description: "Nu depinzi de o singură persoană. Echipa B-CON este mereu disponibilă",
+              },
             ].map(({ Icon, title, description }, index) => (
               <motion.div
                 key={index}
@@ -354,12 +316,8 @@ const HomePage = () => {
                 <div className="w-10 h-10 bg-burgundy-50 flex items-center justify-center mb-4">
                   <Icon className="h-5 w-5 text-burgundy-900" />
                 </div>
-                <h3 className="font-heading font-semibold text-slate-900 mb-2 text-base">
-                  {title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {description}
-                </p>
+                <h3 className="font-heading font-semibold text-slate-900 mb-2 text-base">{title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{description}</p>
               </motion.div>
             ))}
           </div>
@@ -378,35 +336,37 @@ const HomePage = () => {
                 Expertiză tehnică și profesionalism în fiecare proiect
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-10">
-                B-CON CONSULTING oferă suport tehnic și consultanță specializată în domeniul construcțiilor, 
-                adaptată cerințelor proiectelor derulate cu autorități contractante. Abordarea noastră este 
-                una riguroasă, orientată spre claritate contractuală, control și rezultate predictibile.
+                B-CON CONSULTING oferă suport tehnic și consultanță specializată în domeniul construcțiilor, adaptată
+                cerințelor proiectelor derulate cu autorități contractante. Abordarea noastră este una riguroasă,
+                orientată spre claritate contractuală, control și rezultate predictibile.
               </p>
-              
+
               <div className="space-y-6">
-                {benefits.map((benefit, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex gap-4"
-                    data-testid={`benefit-${index}`}
-                  >
-                    <div className="flex-shrink-0 w-12 h-12 bg-slate-900 flex items-center justify-center">
-                      <benefit.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1">
-                        {benefit.title}
-                      </h3>
-                      <p className="text-slate-600 text-sm leading-relaxed">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
+                {(homepageContent.benefits || []).map((benefit, index) => {
+                  const Icon = BENEFIT_ICONS[index] || Award;
+
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="flex gap-4"
+                      data-testid={`benefit-${index}`}
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 bg-slate-900 flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1">
+                          {benefit.title}
+                        </h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">{benefit.description}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 
@@ -417,9 +377,9 @@ const HomePage = () => {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <img 
-                src={ABOUT_IMAGE} 
-                alt="Echipă de consultanți B-CON pe șantier" 
+              <img
+                src={ABOUT_IMAGE}
+                alt="Echipă de consultanți B-CON pe șantier"
                 className="w-full h-[550px] object-cover shadow-lg"
               />
             </motion.div>
@@ -440,7 +400,8 @@ const HomePage = () => {
               Nu ai nevoie de un salariu în plus. Ai nevoie de rezultate.
             </h2>
             <p className="text-burgundy-100 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-              Colaborarea cu B-CON îți oferă expertiză completă, flexibilitate totală și control financiar real — exact când ai nevoie, exact cât ai nevoie.
+              Colaborarea cu B-CON îți oferă expertiză completă, flexibilitate totală și control financiar real — exact
+              când ai nevoie, exact cât ai nevoie.
             </p>
             <Link to="/contact">
               <button
