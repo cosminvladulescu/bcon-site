@@ -1,38 +1,38 @@
 {
+  "brandDescription": "Consultanță profesională în construcții și infrastructură pentru proiecte publice din România.",
   "columns": [
     {
-      "title": "B-CON Consulting",
+      "title": "Navigare",
       "links": [
-        {
-          "label": "Servicii",
-          "href": "/servicii"
-        },
-        {
-          "label": "Despre noi",
-          "href": "/despre"
-        }
+        { "label": "Acasă", "href": "/" },
+        { "label": "Despre noi", "href": "/despre-noi" },
+        { "label": "Servicii", "href": "/servicii" },
+        { "label": "Blog", "href": "/blog" },
+        { "label": "Contact", "href": "/contact" }
       ]
     },
     {
-      "title": "Resurse",
+      "title": "Servicii",
       "links": [
-        {
-          "label": "Blog",
-          "href": "/blog"
-        },
-        {
-          "label": "Contact",
-          "href": "/contact"
-        }
+        { "label": "Consultanță Contracte Publice", "href": "/servicii" },
+        { "label": "Ofertare SEAP", "href": "/servicii" },
+        { "label": "Decontare & Situații de Lucrări", "href": "/servicii" },
+        { "label": "Claim Management", "href": "/servicii" }
       ]
     }
   ],
   "contact": {
-    "phone": "+40 0758 231 668",
+    "phone": "0758 231 666",
     "email": "office@b-con.ro",
     "location": "România"
   },
+  "companyLegal": "DAB Nexus S.R.L. | CUI: 46207927 | J23/3449/27.05.2022 | Sediul social: Strada Drumul Fermei, nr. 74, Bloc 13C, Ap. 8, Popești Leordeni, Ilfov",
   "legal": {
-    "copyright": "© {{year}} B-CON Consulting. Toate drepturile rezervate."
-  }
+    "copyright": "© {{year}} DAB Nexus S.R.L. — Toate drepturile rezervate"
+  },
+  "legalLinks": [
+    { "label": "Termeni și Condiții", "href": "/termeni-si-conditii" },
+    { "label": "Politica de Confidențialitate", "href": "/politica-confidentialitate" },
+    { "label": "Politica de Cookies", "href": "/politica-cookies" }
+  ]
 }
