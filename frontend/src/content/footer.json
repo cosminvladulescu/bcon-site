@@ -4,25 +4,52 @@
     {
       "title": "Navigare",
       "links": [
-        { "label": "Acasă", "href": "/" },
-        { "label": "Despre noi", "href": "/despre-noi" },
-        { "label": "Servicii", "href": "/servicii" },
-        { "label": "Blog", "href": "/blog" },
-        { "label": "Contact", "href": "/contact" }
+        {
+          "label": "Acasă",
+          "href": "/"
+        },
+        {
+          "label": "Despre noi",
+          "href": "/despre-noi"
+        },
+        {
+          "label": "Servicii",
+          "href": "/servicii"
+        },
+        {
+          "label": "Blog",
+          "href": "/blog"
+        },
+        {
+          "label": "Contact",
+          "href": "/contact"
+        }
       ]
     },
     {
       "title": "Servicii",
       "links": [
-        { "label": "Consultanță Contracte Publice", "href": "/servicii" },
-        { "label": "Ofertare SEAP", "href": "/servicii" },
-        { "label": "Decontare & Situații de Lucrări", "href": "/servicii" },
-        { "label": "Claim Management", "href": "/servicii" }
+        {
+          "label": "Consultanță Contracte Publice",
+          "href": "/servicii"
+        },
+        {
+          "label": "Ofertare SEAP",
+          "href": "/servicii"
+        },
+        {
+          "label": "Decontare & Situații de Lucrări",
+          "href": "/servicii"
+        },
+        {
+          "label": "Claim Management",
+          "href": "/servicii"
+        }
       ]
     }
   ],
   "contact": {
-    "phone": "0758 231 666",
+    "phone": "0758 231 668",
     "email": "office@b-con.ro",
     "location": "România"
   },
@@ -31,8 +58,17 @@
     "copyright": "© {{year}} DAB Nexus S.R.L. — Toate drepturile rezervate"
   },
   "legalLinks": [
-    { "label": "Termeni și Condiții", "href": "/termeni-si-conditii" },
-    { "label": "Politica de Confidențialitate", "href": "/politica-confidentialitate" },
-    { "label": "Politica de Cookies", "href": "/politica-cookies" }
+    {
+      "label": "Termeni și Condiții",
+      "href": "/termeni-si-conditii"
+    },
+    {
+      "label": "Politica de Confidențialitate",
+      "href": "/politica-confidentialitate"
+    },
+    {
+      "label": "Politica de Cookies",
+      "href": "/politica-cookies"
+    }
   ]
 }
