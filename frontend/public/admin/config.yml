@@ -1,4 +1,3 @@
-# Decap CMS + DecapBridge (PKCE)
 backend:
   name: git-gateway
   repo: cosminvladulescu/bcon-site
@@ -10,32 +9,21 @@ backend:
   gateway_url: https://gateway.decapbridge.com
 
   commit_messages:
-    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+    create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>
+    update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>
+    delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>
 
-# PKCE fields (recommended)
 auth:
   email_claim: email
   first_name_claim: first_name
   last_name_claim: last_name
   avatar_url_claim: avatar_url
 
-logo_url: https://decapbridge.com/decapcms-with-bridge.svg
-site_url: https://b-con.ro
-
-# REQUIRED: media + collections
 media_folder: frontend/public/images/uploads
 public_folder: /images/uploads
 
-# REQUIRED by the schema you hit (safe default)
-media_library:
-  name: uploadcare
-
 collections:
+
   - name: "homepage"
     label: "Homepage"
     files:
@@ -47,26 +35,42 @@ collections:
             name: "hero"
             widget: "object"
             fields:
-              - { label: "Titlu", name: "title", widget: "string" }
-              - { label: "Subtitlu", name: "subtitle", widget: "text" }
-              - { label: "Text buton principal", name: "ctaPrimary", widget: "string" }
-              - { label: "Text buton secundar", name: "ctaSecondary", widget: "string" }
+              - label: "Titlu"
+                name: "title"
+                widget: "string"
+              - label: "Subtitlu"
+                name: "subtitle"
+                widget: "text"
+              - label: "CTA Principal"
+                name: "ctaPrimary"
+                widget: "string"
+              - label: "CTA Secundar"
+                name: "ctaSecondary"
+                widget: "string"
 
           - label: "Servicii"
             name: "services"
             widget: "list"
             fields:
-              - { label: "Titlu", name: "title", widget: "string" }
-              - { label: "Descriere", name: "description", widget: "text" }
+              - label: "Titlu"
+                name: "title"
+                widget: "string"
+              - label: "Descriere"
+                name: "description"
+                widget: "text"
 
           - label: "Beneficii"
             name: "benefits"
             widget: "list"
             fields:
-              - { label: "Titlu", name: "title", widget: "string" }
-              - { label: "Descriere", name: "description", widget: "text" }
+              - label: "Titlu"
+                name: "title"
+                widget: "string"
+              - label: "Descriere"
+                name: "description"
+                widget: "text"
 
-    - name: "contact"
+  - name: "contact"
     label: "Date Contact"
     files:
       - label: "Informatii Contact"
@@ -82,3 +86,133 @@ collections:
           - label: "Adresa"
             name: "adresa"
             widget: "string"
+
+  - name: "site"
+    label: "Header / Meniu"
+    files:
+      - label: "Setari Site"
+        name: "site"
+        file: "frontend/src/content/site.json"
+        fields:
+          - label: "Brand"
+            name: "brand"
+            widget: "string"
+
+          - label: "Meniu"
+            name: "nav"
+            widget: "list"
+            fields:
+              - label: "Text"
+                name: "label"
+                widget: "string"
+              - label: "Link"
+                name: "href"
+                widget: "string"
+
+          - label: "Buton Header"
+            name: "headerCta"
+            widget: "object"
+            fields:
+              - label: "Text"
+                name: "label"
+                widget: "string"
+              - label: "Link"
+                name: "href"
+                widget: "string"
+
+  - name: "footer"
+    label: "Footer"
+    files:
+      - label: "Continut Footer"
+        name: "footer"
+        file: "frontend/src/content/footer.json"
+        fields:
+          - label: "Coloane"
+            name: "columns"
+            widget: "list"
+            fields:
+              - label: "Titlu"
+                name: "title"
+                widget: "string"
+              - label: "Linkuri"
+                name: "links"
+                widget: "list"
+                fields:
+                  - label: "Text"
+                    name: "label"
+                    widget: "string"
+                  - label: "Link"
+                    name: "href"
+                    widget: "string"
+
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - label: "Telefon"
+                name: "phone"
+                widget: "string"
+              - label: "Email"
+                name: "email"
+                widget: "string"
+              - label: "Locatie"
+                name: "location"
+                widget: "string"
+
+          - label: "Legal"
+            name: "legal"
+            widget: "object"
+            fields:
+              - label: "Copyright"
+                name: "copyright"
+                widget: "string"
+
+  - name: "services_page"
+    label: "Pagina Servicii"
+    files:
+      - label: "Continut Servicii"
+        name: "services"
+        file: "frontend/src/content/services.json"
+        fields:
+          - label: "Titlu"
+            name: "pageTitle"
+            widget: "string"
+          - label: "Introducere"
+            name: "pageIntro"
+            widget: "text"
+
+          - label: "Lista servicii"
+            name: "items"
+            widget: "list"
+            fields:
+              - label: "Titlu"
+                name: "title"
+                widget: "string"
+              - label: "Descriere"
+                name: "description"
+                widget: "text"
+
+  - name: "about_page"
+    label: "Pagina Despre"
+    files:
+      - label: "Continut Despre"
+        name: "about"
+        file: "frontend/src/content/about.json"
+        fields:
+          - label: "Titlu"
+            name: "pageTitle"
+            widget: "string"
+          - label: "Introducere"
+            name: "intro"
+            widget: "text"
+
+          - label: "Highlights"
+            name: "highlights"
+            widget: "list"
+            fields:
+              - label: "Titlu"
+                name: "title"
+                widget: "string"
+              - label: "Descriere"
+                name: "description"
+                widget: "text"
