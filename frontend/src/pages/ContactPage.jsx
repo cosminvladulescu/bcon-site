@@ -1,3 +1,4 @@
+@'
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Send, CheckCircle } from "lucide-react";
@@ -62,10 +63,9 @@ const ContactPage = () => {
     <div className="pt-20" data-testid="contact-page">
       <PageMeta
         title="Contact | B-CON Consulting"
-        description={`Contactează echipa B-CON Consulting pentru o discuție gratuită despre contractele tale publice. Email: ${contactContent.email} | Tel: ${contactContent.telefonAfisare}`}
+        description={`Contactează echipa B-CON Consulting pentru o discuție gratuită. Email: ${contactContent.email} | Tel: ${contactContent.telefonAfisare}`}
       />
 
-      {/* Hero Section */}
       <section className="py-24 md:py-32 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
           <motion.div
@@ -77,25 +77,19 @@ const ContactPage = () => {
             <p className="text-burgundy-500 font-medium uppercase tracking-widest text-sm mb-4">
               Contact
             </p>
-            <h1
-              className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-              data-testid="contact-title"
-            >
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" data-testid="contact-title">
               Hai să discutăm
             </h1>
             <p className="text-slate-300 text-lg md:text-xl leading-relaxed">
-              Completează formularul de mai jos sau contactează-ne direct. Te vom contacta în cel mai
-              scurt timp posibil.
+              Completează formularul de mai jos sau contactează-ne direct. Te vom contacta în cel mai scurt timp posibil.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -145,14 +139,12 @@ const ContactPage = () => {
                   Program de lucru
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Luni - Vineri: {contactContent.program?.luniVineri || "—"}
-                  <br />
+                  Luni - Vineri: {contactContent.program?.luniVineri || "—"}<br />
                   Sâmbătă - Duminică: {contactContent.program?.sambataDuminica || "—"}
                 </p>
               </div>
             </motion.div>
 
-            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -280,7 +272,6 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-16 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 text-center">
           <h2 className="font-heading text-2xl font-bold text-slate-900 mb-4">
@@ -306,3 +297,4 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+'@ | Set-Content -Encoding UTF8 frontend\src\pages\ContactPage.jsx
