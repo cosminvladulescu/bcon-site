@@ -1,4 +1,3 @@
-@'
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Send, CheckCircle } from "lucide-react";
@@ -7,12 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import axios from "axios";
 import PageMeta from "@/components/PageMeta";
 
 import contactContent from "../content/contact.json";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const encode = (data) =>
+  Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key] ?? "")}`)
+    .join("&");
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +23,7 @@ const ContactPage = () => {
     company: "",
     message: "",
   });
+
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -41,7 +43,22 @@ const ContactPage = () => {
     setLoading(true);
 
     try {
-      await axios.post(`${API}/contact`, formData);
+      const payload = {
+        "form-name": "contact",
+        "bot-field": "",
+        ...formData,
+      };
+
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Netlify form submit failed: ${res.status}`);
+      }
+
       setSubmitted(true);
       toast.success("Mesajul a fost trimis cu succes!");
       setFormData({
@@ -66,6 +83,7 @@ const ContactPage = () => {
         description={`Contactează echipa B-CON Consulting pentru o discuție gratuită. Email: ${contactContent.email} | Tel: ${contactContent.telefonAfisare}`}
       />
 
+      {/* Hero */}
       <section className="py-24 md:py-32 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
           <motion.div
@@ -77,7 +95,10 @@ const ContactPage = () => {
             <p className="text-burgundy-500 font-medium uppercase tracking-widest text-sm mb-4">
               Contact
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" data-testid="contact-title">
+            <h1
+              className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              data-testid="contact-title"
+            >
               Hai să discutăm
             </h1>
             <p className="text-slate-300 text-lg md:text-xl leading-relaxed">
@@ -87,9 +108,11 @@ const ContactPage = () => {
         </div>
       </section>
 
+      {/* Content */}
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Contact info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -139,12 +162,14 @@ const ContactPage = () => {
                   Program de lucru
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Luni - Vineri: {contactContent.program?.luniVineri || "—"}<br />
+                  Luni - Vineri: {contactContent.program?.luniVineri || "—"}
+                  <br />
                   Sâmbătă - Duminică: {contactContent.program?.sambataDuminica || "—"}
                 </p>
               </div>
             </motion.div>
 
+            {/* Form */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -170,7 +195,25 @@ const ContactPage = () => {
                   </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6" data-testid="contact-form">
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  data-testid="contact-form"
+                >
+                  {/* Netlify required */}
+                  <input type="hidden" name="form-name" value="contact" />
+
+                  {/* Honeypot */}
+                  <p className="hidden">
+                    <label>
+                      Don&apos;t fill this out: <input name="bot-field" />
+                    </label>
+                  </p>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">Nume complet *</Label>
@@ -272,6 +315,7 @@ const ContactPage = () => {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-16 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 text-center">
           <h2 className="font-heading text-2xl font-bold text-slate-900 mb-4">
@@ -297,4 +341,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-'@ | Set-Content -Encoding UTF8 frontend\src\pages\ContactPage.jsx
