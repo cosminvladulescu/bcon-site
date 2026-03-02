@@ -35,57 +35,39 @@ collections:
             name: "hero"
             widget: "object"
             fields:
-              - label: "Titlu"
-                name: "title"
-                widget: "string"
-              - label: "Subtitlu"
-                name: "subtitle"
-                widget: "text"
-              - label: "CTA Principal"
-                name: "ctaPrimary"
-                widget: "string"
-              - label: "CTA Secundar"
-                name: "ctaSecondary"
-                widget: "string"
-
+              - { label: "Titlu", name: "title", widget: "string" }
+              - { label: "Subtitlu", name: "subtitle", widget: "text" }
+              - { label: "CTA Principal", name: "ctaPrimary", widget: "string" }
+              - { label: "CTA Secundar", name: "ctaSecondary", widget: "string" }
           - label: "Servicii"
             name: "services"
             widget: "list"
             fields:
-              - label: "Titlu"
-                name: "title"
-                widget: "string"
-              - label: "Descriere"
-                name: "description"
-                widget: "text"
-
+              - { label: "Titlu", name: "title", widget: "string" }
+              - { label: "Descriere", name: "description", widget: "text" }
           - label: "Beneficii"
             name: "benefits"
             widget: "list"
             fields:
-              - label: "Titlu"
-                name: "title"
-                widget: "string"
-              - label: "Descriere"
-                name: "description"
-                widget: "text"
+              - { label: "Titlu", name: "title", widget: "string" }
+              - { label: "Descriere", name: "description", widget: "text" }
 
   - name: "contact"
-    label: "Date Contact"
+    label: "Contact"
     files:
       - label: "Informatii Contact"
         name: "contact"
         file: "frontend/src/content/contact.json"
         fields:
-          - label: "Telefon"
-            name: "telefon"
-            widget: "string"
-          - label: "Email"
-            name: "email"
-            widget: "string"
-          - label: "Adresa"
-            name: "adresa"
-            widget: "string"
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Telefon (afisat)", name: "telefonAfisare", widget: "string" }
+          - { label: "Telefon (link)", name: "telefonLink", widget: "string" }
+          - label: "Program"
+            name: "program"
+            widget: "object"
+            fields:
+              - { label: "Luni - Vineri", name: "luniVineri", widget: "string" }
+              - { label: "Sambata - Duminica", name: "sambataDuminica", widget: "string" }
 
   - name: "site"
     label: "Header / Meniu"
@@ -94,31 +76,19 @@ collections:
         name: "site"
         file: "frontend/src/content/site.json"
         fields:
-          - label: "Brand"
-            name: "brand"
-            widget: "string"
-
+          - { label: "Brand", name: "brand", widget: "string" }
           - label: "Meniu"
             name: "nav"
             widget: "list"
             fields:
-              - label: "Text"
-                name: "label"
-                widget: "string"
-              - label: "Link"
-                name: "href"
-                widget: "string"
-
+              - { label: "Text", name: "label", widget: "string" }
+              - { label: "Link", name: "href", widget: "string" }
           - label: "Buton Header"
             name: "headerCta"
             widget: "object"
             fields:
-              - label: "Text"
-                name: "label"
-                widget: "string"
-              - label: "Link"
-                name: "href"
-                widget: "string"
+              - { label: "Text", name: "label", widget: "string" }
+              - { label: "Link", name: "href", widget: "string" }
 
   - name: "footer"
     label: "Footer"
@@ -131,41 +101,25 @@ collections:
             name: "columns"
             widget: "list"
             fields:
-              - label: "Titlu"
-                name: "title"
-                widget: "string"
+              - { label: "Titlu", name: "title", widget: "string" }
               - label: "Linkuri"
                 name: "links"
                 widget: "list"
                 fields:
-                  - label: "Text"
-                    name: "label"
-                    widget: "string"
-                  - label: "Link"
-                    name: "href"
-                    widget: "string"
-
+                  - { label: "Text", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
           - label: "Contact"
             name: "contact"
             widget: "object"
             fields:
-              - label: "Telefon"
-                name: "phone"
-                widget: "string"
-              - label: "Email"
-                name: "email"
-                widget: "string"
-              - label: "Locatie"
-                name: "location"
-                widget: "string"
-
+              - { label: "Telefon", name: "phone", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Locatie", name: "location", widget: "string" }
           - label: "Legal"
             name: "legal"
             widget: "object"
             fields:
-              - label: "Copyright"
-                name: "copyright"
-                widget: "string"
+              - { label: "Copyright", name: "copyright", widget: "string" }
 
   - name: "services_page"
     label: "Pagina Servicii"
@@ -174,23 +128,14 @@ collections:
         name: "services"
         file: "frontend/src/content/services.json"
         fields:
-          - label: "Titlu"
-            name: "pageTitle"
-            widget: "string"
-          - label: "Introducere"
-            name: "pageIntro"
-            widget: "text"
-
+          - { label: "Titlu", name: "pageTitle", widget: "string" }
+          - { label: "Introducere", name: "pageIntro", widget: "text" }
           - label: "Lista servicii"
             name: "items"
             widget: "list"
             fields:
-              - label: "Titlu"
-                name: "title"
-                widget: "string"
-              - label: "Descriere"
-                name: "description"
-                widget: "text"
+              - { label: "Titlu", name: "title", widget: "string" }
+              - { label: "Descriere", name: "description", widget: "text" }
 
   - name: "about_page"
     label: "Pagina Despre"
@@ -199,20 +144,11 @@ collections:
         name: "about"
         file: "frontend/src/content/about.json"
         fields:
-          - label: "Titlu"
-            name: "pageTitle"
-            widget: "string"
-          - label: "Introducere"
-            name: "intro"
-            widget: "text"
-
+          - { label: "Titlu", name: "pageTitle", widget: "string" }
+          - { label: "Introducere", name: "intro", widget: "text" }
           - label: "Highlights"
             name: "highlights"
             widget: "list"
             fields:
-              - label: "Titlu"
-                name: "title"
-                widget: "string"
-              - label: "Descriere"
-                name: "description"
-                widget: "text"
+              - { label: "Titlu", name: "title", widget: "string" }
+              - { label: "Descriere", name: "description", widget: "text" }
