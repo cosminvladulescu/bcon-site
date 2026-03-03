@@ -1,3 +1,5 @@
+import React from "react";
+
 const WhatsAppButton = () => {
   const phoneNumber = "40758231668";
   const message = "Bună ziua! Aș dori mai multe informații despre serviciile B-CON Consulting.";
