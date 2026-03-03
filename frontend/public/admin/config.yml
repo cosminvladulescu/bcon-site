@@ -152,28 +152,8 @@ collections:
             fields:
               - { label: "Titlu", name: "title", widget: "string" }
               - { label: "Descriere", name: "description", widget: "text" }
-              - name: "blog"
-    label: "Blog"
-    folder: "frontend/public/blog"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
-    fields:
-      - { label: "Titlu", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-      - label: "Categorie"
-        name: "category"
-        widget: "select"
-        options:
-          - "Achizitii publice"
-          - "Modificari legislative"
-          - "Management contractual"
-      - { label: "Rezumat", name: "excerpt", widget: "text" }
-      - { label: "Imagine coperta", name: "image", widget: "image", required: false }
-      - { label: "Publicat", name: "published", widget: "boolean", default: true }
-      - { label: "Continut", name: "body", widget: "markdown" }
-      - name: "blog"
+
+  - name: "blog"
     label: "Blog"
     folder: "frontend/src/content/blog"
     create: true
