@@ -79,8 +79,6 @@ const webpackConfig = {
 
       return webpackConfig;
 ```
-
-Salvează cu **Ctrl+S**. Acum instalează `buffer`:
 ```
 npm install buffer --legacy-peer-deps
     },
