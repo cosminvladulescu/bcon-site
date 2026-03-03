@@ -43,7 +43,7 @@ const CookieBanner = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:flex-shrink-0">
             <button
               onClick={handleEssentialOnly}
-              className="px-5 py-2.5 text-sm font-medium border border-burgundy-900 text-burgundy-400 hover:bg-burgundy-900 hover:text-white transition-colors"
+              className="px-5 py-2.5 text-sm font-medium border-2 border-white text-white hover:bg-white hover:text-slate-900 transition-colors"
               data-testid="cookie-essential-btn"
             >
               Doar esențiale
