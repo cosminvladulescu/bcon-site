@@ -10,7 +10,7 @@ const NotFoundPage = () => {
   return (
     <div className="pt-20 min-h-[80vh] bg-slate-50 flex items-center" data-testid="not-found-page">
       <PageMeta
-        title="404 — Pagină negăsită | B-CON Consulting"
+        title="404 – Pagină negăsită | B-CON Consulting"
         description="Pagina pe care o cauți nu există sau a fost mutată."
       />
       <div className="max-w-2xl mx-auto px-6 text-center py-24 w-full">

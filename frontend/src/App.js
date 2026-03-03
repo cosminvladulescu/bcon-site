@@ -20,6 +20,7 @@ import AdminDashboard from "@/pages/admin/AdminDashboard";
 import Layout from "@/components/Layout";
 import AdminLayout from "@/components/admin/AdminLayout";
 import ScrollToTop from "@/components/ScrollToTop";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" richColors />
+      <WhatsAppButton />
     </div>
   );
 }
