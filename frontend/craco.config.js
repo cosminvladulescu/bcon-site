@@ -65,7 +65,24 @@ const webpackConfig = {
       if (config.enableHealthCheck && healthPluginInstance) {
         webpackConfig.plugins.push(healthPluginInstance);
       }
+
+      // Polyfills pentru module Node.js
+      webpackConfig.resolve = {
+        ...webpackConfig.resolve,
+        fallback: {
+          ...webpackConfig.resolve?.fallback,
+          buffer: require.resolve("buffer/"),
+          path: false,
+          fs: false,
+        },
+      };
+
       return webpackConfig;
+```
+
+Salvează cu **Ctrl+S**. Acum instalează `buffer`:
+```
+npm install buffer --legacy-peer-deps
     },
   },
 };
