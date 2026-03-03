@@ -6,36 +6,19 @@ import PageMeta from "@/components/PageMeta";
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("Toate");
 
   useEffect(() => {
-    const loadPosts = async () => {
-      try {
-        const context = require.context(
-          "../../public/blog",
-          false,
-          /\.md$/
-        );
-        const matter = (await import("gray-matter")).default;
-        const loaded = context.keys().map((key) => {
-          const raw = context(key);
-          const content = typeof raw === "string" ? raw : raw.default || "";
-          const { data } = matter(content);
-          const slug = key.replace("./", "").replace(".md", "");
-          return { ...data, slug };
-        });
-        const published = loaded
-          .filter((p) => p.published !== false)
-          .sort((a, b) => new Date(b.date) - new Date(a.date));
-        setPosts(published);
-      } catch (err) {
-        console.error("Error loading posts:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadPosts();
+    const context = require.context("../content/blog", false, /\.json$/);
+    const loaded = context.keys().map((key) => {
+      const data = context(key);
+      const slug = key.replace("./", "").replace(".json", "");
+      return { ...data, slug };
+    });
+    const published = loaded
+      .filter((p) => p.published !== false)
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+    setPosts(published);
   }, []);
 
   const categories = ["Toate", "Achizitii publice", "Modificari legislative", "Management contractual"];
@@ -47,9 +30,7 @@ const BlogPage = () => {
   const formatDate = (dateString) => {
     if (!dateString) return "";
     return new Date(dateString).toLocaleDateString("ro-RO", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+      year: "numeric", month: "long", day: "numeric",
     });
   };
 
@@ -96,9 +77,7 @@ const BlogPage = () => {
 
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-          {loading ? (
-            <p className="text-center text-slate-500">Se încarcă articolele...</p>
-          ) : filteredPosts.length === 0 ? (
+          {filteredPosts.length === 0 ? (
             <p className="text-center text-slate-500">Nu există articole în această categorie.</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

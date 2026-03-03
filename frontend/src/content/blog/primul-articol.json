@@ -1,0 +1,9 @@
+{
+  "title": "Primul articol B-CON",
+  "date": "2026-03-01",
+  "category": "Achizitii publice",
+  "excerpt": "Scurta descriere a articolului care apare in lista de blog.",
+  "image": "",
+  "published": true,
+  "body": "<h2>Subtitlu</h2><p>Acesta este primul articol de pe blogul B-CON Consulting.</p><ul><li>Element lista 1</li><li>Element lista 2</li><li>Element lista 3</li></ul>"
+}

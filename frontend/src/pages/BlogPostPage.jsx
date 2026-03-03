@@ -3,47 +3,26 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, ArrowLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ReactMarkdown from "react-markdown";
 
 const BlogPostPage = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadPost = async () => {
-      try {
-        const matter = (await import("gray-matter")).default;
-        const raw = await import(`../../public/blog/${slug}.md`);
-        const content = typeof raw === "string" ? raw : raw.default || "";
-        const { data, content: body } = matter(content);
-        setPost({ ...data, body, slug });
-      } catch (err) {
-        console.error("Error loading post:", err);
-        setPost(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadPost();
+    try {
+      const data = require(`../content/blog/${slug}.json`);
+      setPost({ ...data, slug });
+    } catch (err) {
+      setPost(null);
+    }
   }, [slug]);
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
     return new Date(dateString).toLocaleDateString("ro-RO", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+      year: "numeric", month: "long", day: "numeric",
     });
   };
-
-  if (loading) {
-    return (
-      <div className="pt-20 min-h-screen flex items-center justify-center">
-        <p className="text-slate-500">Se încarcă articolul...</p>
-      </div>
-    );
-  }
 
   if (!post) {
     return (
@@ -103,7 +82,7 @@ const BlogPostPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="prose prose-lg max-w-none prose-headings:font-heading prose-a:text-burgundy-900"
           >
-            <ReactMarkdown>{post.body}</ReactMarkdown>
+            <div dangerouslySetInnerHTML={{ __html: post.body }} />
           </motion.div>
         </div>
       </section>
